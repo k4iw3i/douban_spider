@@ -1,5 +1,3 @@
-# Douban Spider readme
-
 # 豆瓣电影爬虫
 ## 简介:
 本项目旨在从[豆瓣电影分类页面](https://movie.douban.com/tag/#/)抓取电影列表并进一步抓取详细信息。
