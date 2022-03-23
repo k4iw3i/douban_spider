@@ -36,7 +36,7 @@ genres = ['全部类型', '剧情','喜剧','动作','爱情','科幻','动画',
 sort = ['U', 'R'] #U ->"近期热门", R -> "最新上映"
 #前三项可根据需要减项
 huoxing_max_page = 10 #爬取火星影视页数,参数为0将不爬取火星影视
-douban_max_item_per_search = 100 #每个tag/genre/sort下爬取影视数量
+douban_max_item_per_search = 100 #每个tag/genre/sort下爬取影视数量,应是20的倍数
 concurrent_requests = 16 #同时请求页面书
 download_delay = 0 #请求之间空隙秒数
 ```
