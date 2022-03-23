@@ -1,2 +1,4 @@
 output_files/*
 html_cache/
+*.ipynb
+request_script/
