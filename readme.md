@@ -32,21 +32,20 @@ password = 'password123456'
 [配置文件](src/spider_config.py)
 ```python
 tags = ['电影', '电视剧']
-genres = ['全部类型', '剧情','喜剧','动作','爱情','科幻','动画','悬疑','惊悚','恐怖','犯罪','同性','音乐','歌舞','传记','历史','战争','西部','奇幻','冒险','灾难','武侠','情色'] #
-sort = ['U', 'R']
+genres = ['全部类型', '剧情','喜剧','动作','爱情','科幻','动画','悬疑','惊悚','恐怖','犯罪','同性','音乐','歌舞','传记','历史','战争','西部','奇幻','冒险','灾难','武侠','情色'] 
+sort = ['U', 'R'] #U ->"近期热门", R -> "最新上映"
 #前三项可根据需要减项
-huoxing_max_page = 10 #爬取火星影视页数
+huoxing_max_page = 10 #爬取火星影视页数,参数为0将不爬取火星影视
 douban_max_item_per_search = 100 #每个tag/genre/sort下爬取影视数量
+concurrent_requests = 16 #同时请求页面书
+download_delay = 0 #请求之间空隙秒数
 ```
+最后四项直接影响爬虫运行时长，经测试：默认选项情况下爬虫大概需要40分钟左右完成
+如果爬虫过程中出现403等错误代码，应当酌情减少concurrent_requests, 增加download_delay
 
 
 ## 运行爬虫:
 ```shell
 cd [项目根目录]
 scrapy crawl douban_spider
-```
-默认不爬取火星影视  
-需要火星影视：
-```shell
-scrapy crawl douban_spider -a huoxing=True
 ```

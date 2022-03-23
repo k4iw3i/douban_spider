@@ -11,7 +11,7 @@ from src.utils import login_headers
 class AltProxiesMiddleware(object):
     def __init__(self):
         self.key = proxy_key
-        with open('ua_list.txt', 'r') as f:
+        with open('src/ua_list.txt', 'r') as f:
             self.ua_list = [x.replace('\n', '') for x in f.readlines()]
         self.cookies = self.login(username, password)
 

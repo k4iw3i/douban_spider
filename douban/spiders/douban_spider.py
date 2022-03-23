@@ -33,14 +33,13 @@ class TiebaSpider(scrapy.Spider):
     }
     name = 'douban_spider'
 
-    def __init__(self, huoxing = False, **kwargs):
+    def __init__(self, **kwargs):
         self.base_url = 'https://movie.douban.com/j/new_search_subjects?'
         self.tags = tags
         self.genres = genres
         self.sort = sort
         self.huoxing_max_page = huoxing_max_page
         self.douban_max_item_per_search = douban_max_item_per_search
-        self.huoxing = huoxing
 
     def start_requests(self):
         for tag in self.tags:
@@ -50,10 +49,14 @@ class TiebaSpider(scrapy.Spider):
                     params = {'sort': sort, 'tags': tag, 'genres': genre, 'range': '0,10', 'start': start}
                     url = self.base_url + urlencode(params)
                     yield scrapy.Request(url, headers = headers, callback = self.parse_listing, meta = {'start': start, 'params': params, 'douban': True})
-        if self.huoxing:
+                    
+        if self.huoxing_max_page > 0:
+            logging.info('HUOXING ENABLED')
             for page_num in range(1, self.huoxing_max_page + 1):
                 url = f'https://huo720.com/calendar/thismonth/{page_num}'
                 yield scrapy.Request(url, headers = headers, callback = self.parse_mars_listing, meta = {'douban': False})
+        else:
+            logging.info('HUOXING DISABLED')
 
     def parse_mars_listing(self, response):
         soup = bs(response.text, 'html.parser')

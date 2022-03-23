@@ -3,3 +3,5 @@ genres = ['全部类型', '剧情','喜剧','动作','爱情','科幻','动画',
 sort = ['U', 'R']
 huoxing_max_page = 10
 douban_max_item_per_search = 100
+concurrent_requests = 16
+download_delay = 0
