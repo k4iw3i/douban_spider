@@ -22,7 +22,7 @@ pip3 install -r requirements.txt
 ```
 ## 配置爬虫
 配置密码:
-[密码文件](src/secrets_config.py)
+[密码文件](src/secrets_config.py)  
 配置样例
 ```python
 proxy_key = '1234567'
@@ -39,7 +39,6 @@ sort = ['U', 'R']
 #前三项可根据需要减项
 huoxing_max_page = 10 #爬取火星影视页数
 douban_max_item_per_search = 100 #每个tag/genre/sort下爬取影视数量
-
 ```
 
 
@@ -48,7 +47,7 @@ douban_max_item_per_search = 100 #每个tag/genre/sort下爬取影视数量
 cd [项目根目录]
 scrapy crawl douban_spider
 ```
-默认不爬取火星影视
+默认不爬取火星影视  
 需要火星影视：
 ```shell
 scrapy crawl douban_spider -a huoxing=True
