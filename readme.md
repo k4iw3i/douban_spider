@@ -49,3 +49,6 @@ download_delay = 0 #请求之间空隙秒数
 cd [项目根目录]
 scrapy crawl douban_spider
 ```
+
+*Ctrl + C 终止爬虫*  
+两次强行终止
