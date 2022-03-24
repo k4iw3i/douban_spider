@@ -127,4 +127,6 @@ class TiebaSpider(scrapy.Spider):
         with fuckit:
             media['want_to_watch_number'] = re.sub("[^0-9]", "", [x for x in other_interest_div.find_all('a') if '想看' in x.text][0].text)
         # logging.info(media)
+        with fuckit:
+            media['timestamp'] = datetime.datetime.today().strftime('%Y-%m-%d')
         yield media

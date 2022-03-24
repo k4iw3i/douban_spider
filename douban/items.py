@@ -21,4 +21,5 @@ class DoubanItem(scrapy.Item):
     description = scrapy.Field()
     duration = scrapy.Field()
     media_type = scrapy.Field()
+    timestamp = scrapy.Field()
     pass
