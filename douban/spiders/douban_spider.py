@@ -1,4 +1,3 @@
-from email import header
 import logging
 import json
 from douban.items import *
@@ -11,8 +10,6 @@ from src.utils import *
 from bs4 import BeautifulSoup as bs
 import sys
 import csv
-import time
-from scrapy.exceptions import CloseSpider
 import re
 from urllib.parse import urlencode
 from src.spider_config import *
